@@ -28,6 +28,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
     
+    //: Set TableView Cell height
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        // calculate the width of screen to calculate the height of the row
+         return (self.view.frame.size.width / 320) * 180
+        
+        
+    }
+    
     //: MARK Tableview Protocols
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,8 +51,42 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let videoTitle = videos[indexPath.row].videoTitle
         
         // Customize our cell to display the video title
-        cell.textLabel?.text = videoTitle
+        //cell.textLabel?.text = videoTitle
         
+        // Construct the video thumbnail
+        let videoThumbnailUrlString = "https://i1.ytimg.com/vi/" + videos[indexPath.row].videoId + "/maxresdefault.jpg"
+        
+        // Create a NSURL object
+        let videoThumbnailUrl = NSURL(string: videoThumbnailUrlString)
+        
+        if videoThumbnailUrl != nil {
+            
+            // Create a NSURLRequest object
+            let request = NSURLRequest(URL: videoThumbnailUrl!)
+            
+            // Create a NSURLSession
+            let session = NSURLSession.sharedSession()
+            
+            // Create a datatask and pass in the request
+            let dataTask = session.dataTaskWithRequest(request, completionHandler: { (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void in
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    // Get a reference to the imageview element of the cell
+                    let imageView = cell.viewWithTag(1) as! UIImageView
+                    
+                    // Create an image object from the data and assign it into the imageview
+                    imageView.image = UIImage(data: data!)
+                    
+                })
+                
+            })
+            
+            dataTask.resume()
+            
+    
+        }
+    
         return cell
     }
 
