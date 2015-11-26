@@ -50,6 +50,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let videoTitle = videos[indexPath.row].videoTitle
         
+        // Get the label for the cell
+        let label = cell.viewWithTag(2) as! UILabel
+        label.text = videoTitle
+        
         // Customize our cell to display the video title
         //cell.textLabel?.text = videoTitle
         

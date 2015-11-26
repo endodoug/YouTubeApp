@@ -33,12 +33,36 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                                     <animations/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmf-aN-aiv">
+                                                    <rect key="frame" x="0.0" y="109" width="600" height="70"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.4026315789473684" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="IAR-dX-EH6"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9q-04-Xxa">
+                                                    <rect key="frame" x="20" y="109" width="560" height="70"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="oKq-L0-VHl"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstItem="8qq-t1-ABV" firstAttribute="top" secondItem="sGb-2h-Cwk" secondAttribute="top" id="6nP-3l-9ER"/>
                                                 <constraint firstAttribute="trailing" secondItem="8qq-t1-ABV" secondAttribute="trailing" id="8RP-9P-8tW"/>
+                                                <constraint firstAttribute="bottom" secondItem="vmf-aN-aiv" secondAttribute="bottom" id="8sc-bU-l4M"/>
+                                                <constraint firstAttribute="trailing" secondItem="L9q-04-Xxa" secondAttribute="trailing" constant="20" id="DVR-7c-HyV"/>
                                                 <constraint firstAttribute="bottom" secondItem="8qq-t1-ABV" secondAttribute="bottom" id="S5Q-ZY-1Hi"/>
+                                                <constraint firstItem="vmf-aN-aiv" firstAttribute="leading" secondItem="sGb-2h-Cwk" secondAttribute="leading" id="VHp-FA-hGl"/>
+                                                <constraint firstAttribute="bottom" secondItem="L9q-04-Xxa" secondAttribute="bottom" id="doS-8N-nFI"/>
+                                                <constraint firstAttribute="trailing" secondItem="vmf-aN-aiv" secondAttribute="trailing" id="eN0-5Q-a9b"/>
+                                                <constraint firstItem="L9q-04-Xxa" firstAttribute="leading" secondItem="sGb-2h-Cwk" secondAttribute="leading" constant="20" id="rve-Ib-2Bt"/>
                                                 <constraint firstItem="8qq-t1-ABV" firstAttribute="leading" secondItem="sGb-2h-Cwk" secondAttribute="leading" id="xK2-Mc-PHB"/>
                                             </constraints>
                                         </tableViewCellContentView>
