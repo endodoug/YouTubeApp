@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B7349AD21C0E4EC900E8643E /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7349AD11C0E4EC900E8643E /* VideoDetailViewController.swift */; };
 		B75AC5031BFFE1E2007D6E11 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AC5021BFFE1E2007D6E11 /* Video.swift */; };
 		B75AC5051BFFE2E5007D6E11 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75AC5041BFFE2E5007D6E11 /* VideoModel.swift */; };
 		B76CCC101BFEBFDC0094B79D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76CCC0F1BFEBFDC0094B79D /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B7349AD11C0E4EC900E8643E /* VideoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoDetailViewController.swift; sourceTree = "<group>"; };
 		B75AC5021BFFE1E2007D6E11 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		B75AC5041BFFE2E5007D6E11 /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
 		B76CCC0C1BFEBFDC0094B79D /* YouTubeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouTubeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +64,7 @@
 				B76CCC111BFEBFDC0094B79D /* ViewController.swift */,
 				B75AC5021BFFE1E2007D6E11 /* Video.swift */,
 				B75AC5041BFFE2E5007D6E11 /* VideoModel.swift */,
+				B7349AD11C0E4EC900E8643E /* VideoDetailViewController.swift */,
 				B76CCC131BFEBFDC0094B79D /* Main.storyboard */,
 				B76CCC161BFEBFDC0094B79D /* Assets.xcassets */,
 				B76CCC181BFEBFDC0094B79D /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				B76CCC121BFEBFDC0094B79D /* ViewController.swift in Sources */,
 				B75AC5031BFFE1E2007D6E11 /* Video.swift in Sources */,
 				B76CCC101BFEBFDC0094B79D /* AppDelegate.swift in Sources */,
+				B7349AD21C0E4EC900E8643E /* VideoDetailViewController.swift in Sources */,
 				B75AC5051BFFE2E5007D6E11 /* VideoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
