@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Video Detail View Controller-->
@@ -17,22 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEZ-at-CSC">
-                                <rect key="frame" x="0.0" y="64" width="600" height="180"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="kfH-Vb-yck"/>
-                                </constraints>
-                            </webView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ft5-XL-uHN">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ft5-XL-uHN">
                                 <rect key="frame" x="20" y="384" width="560" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmj-0P-t7u">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmj-0P-t7u">
                                 <rect key="frame" x="20" y="264" width="400" height="100"/>
                                 <animations/>
                                 <constraints>
@@ -42,6 +35,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEZ-at-CSC">
+                                <rect key="frame" x="0.0" y="64" width="600" height="180"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="kfH-Vb-yck"/>
+                                </constraints>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -53,7 +53,7 @@
                             <constraint firstAttribute="trailing" secondItem="Ft5-XL-uHN" secondAttribute="trailing" constant="20" id="Too-BK-TRe"/>
                             <constraint firstAttribute="trailing" secondItem="zEZ-at-CSC" secondAttribute="trailing" id="Vdz-ah-i9r"/>
                             <constraint firstItem="Ft5-XL-uHN" firstAttribute="leading" secondItem="dEh-Wb-qg9" secondAttribute="leading" constant="20" id="XmO-1B-1Kl"/>
-                            <constraint firstItem="zEZ-at-CSC" firstAttribute="top" secondItem="dEh-Wb-qg9" secondAttribute="top" constant="64" id="lCY-p1-TeB"/>
+                            <constraint firstItem="zEZ-at-CSC" firstAttribute="top" secondItem="dEh-Wb-qg9" secondAttribute="topMargin" constant="64" id="lCY-p1-TeB"/>
                             <constraint firstItem="zEZ-at-CSC" firstAttribute="leading" secondItem="dEh-Wb-qg9" secondAttribute="leading" id="rgs-NT-aDf"/>
                         </constraints>
                     </view>
@@ -61,6 +61,7 @@
                         <outlet property="descriptionLabel" destination="Ft5-XL-uHN" id="1Gj-0C-nx0"/>
                         <outlet property="titleLabel" destination="zmj-0P-t7u" id="IPc-H5-htz"/>
                         <outlet property="webView" destination="zEZ-at-CSC" id="X52-ee-dOR"/>
+                        <outlet property="webViewHeightConstraint" destination="kfH-Vb-yck" id="WnG-vy-O02"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryN-ds-buu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -129,9 +130,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <connections>
-                                            <segue destination="ib8-22-uuO" kind="show" id="Mre-zt-EYi"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -148,11 +146,12 @@
                     <navigationItem key="navigationItem" id="dWD-xh-RC1"/>
                     <connections>
                         <outlet property="tableView" destination="VNI-3f-pnX" id="tyV-cn-dns"/>
+                        <segue destination="ib8-22-uuO" kind="show" identifier="goToDetail" id="hcb-zJ-RdW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1282" y="1117"/>
+            <point key="canvasLocation" x="1275" y="1117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SJS-HJ-Ntw">

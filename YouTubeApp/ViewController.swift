@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView: UITableView!
     var videos: [Video] = [Video]()
+    var selectedVideo: Video?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     //: Set TableView Cell height
     
@@ -92,6 +94,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // take note of which cell was selected
+        self.selectedVideo = self.videos[indexPath.row]
+        
+        // call the segue
+        self.performSegueWithIdentifier("goToDetail", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        // get reference for destination viewController
+        let detailViewController = segue.destinationViewController as! VideoDetailViewController
+        
+        // set the selected video property of the destination viewController
+        detailViewController.selectedVideo = self.selectedVideo
+        
     }
 
 
