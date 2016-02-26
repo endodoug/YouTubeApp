@@ -7,8 +7,54 @@
 //
 
 import UIKit
+import Alamofire
+
+protocol VideoModelDelegate {
+    func dataReady()
+}
 
 class VideoModel: NSObject {
+    
+    let API_KEY = "AIzaSyAPr_so6eHXUiJ3UGbIRpCcGM0JHhdJaqs"
+    let UPLOADS_PlAYLIST_ID = "UUKAqou7V9FAWXpZd9xtOg3Q"
+    
+    var videoArray = [Video]()
+    
+    var delegate: VideoModelDelegate?
+    
+    func getFeedVideos() {
+        
+        // Dynamically fetch videos with YouTube API
+        Alamofire.request(.GET, "https://www.googleapis.com/youtube/v3/playlistItems", parameters: ["part" : "snippet", "playlistId" :UPLOADS_PlAYLIST_ID, "key":API_KEY], encoding: ParameterEncoding.URL, headers: nil).responseJSON { (response) -> Void in
+            
+            if let JSON = response.result.value {
+                
+                var arrayOfVideos = [Video]()
+                
+                for video in JSON["items"] as! NSArray {
+                    
+                    // create video objects
+                    let videoObj = Video()
+                    videoObj.videoId = video.valueForKeyPath("snippet.resourceId.videoId") as! String
+                    videoObj.videoTitle = video.valueForKeyPath("snippet.title") as! String
+                    videoObj.videoDescription = video.valueForKeyPath("snippet.description") as! String
+                    videoObj.videoThumbnailURL = video.valueForKeyPath("snippet.thumbnails.maxres.url") as! String
+                    
+                    arrayOfVideos.append(videoObj)
+                }
+                
+                // After video objects are built, assign the array to the VideoModel property
+                self.videoArray = arrayOfVideos
+                
+                // notify the delegate the data is ready
+                if self.delegate != nil {
+                    self.delegate!.dataReady()
+                }
+            }
+            
+        }
+        
+    }
 
     func getVideos() -> [Video] {
         

@@ -4,22 +4,29 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>YouTubeApp 2.xcscheme</key>
+		<key>Alamofire.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>1</integer>
 		</dict>
-		<key>YouTubeApp.xcscheme_^#shared#^_</key>
+		<key>Pods-YouTubeApp.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>B76CCC0B1BFEBFDC0094B79D</key>
+		<key>432ECC54282C84882B482CCB4CF227FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>91FFB451158A3C5B852D25610CA0E7AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
